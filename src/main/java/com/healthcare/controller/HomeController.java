@@ -5,11 +5,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.healthcare.repository.DoctorRepository;
+import com.healthcare.repository.StaffRepository;
+import com.healthcare.model.Staff;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    private StaffRepository staffRepository;
 
     // Default homepage
     @GetMapping("/")
@@ -42,15 +48,31 @@ public class HomeController {
     public String mdashboard() {
         return "mangamentdashboard"; // this will open mdashboard.jsp
     }
-    
+
     @PostMapping("/managementdashboard")
-    public String managementdashboard() {
-        return "redirect:/mdashboard"; // this will open dashboard.jsp
+    public String managementdashboard(@RequestParam("email") String email, @RequestParam("password") String password) {
+        try{
+            Staff staff = staffRepository.findByEmailAndPassword(email, password);
+
+            if(staff!=null){
+                // Login successful
+                return "redirect:/mdashboard"; // this will open dashboard.jsp
+            }else{
+                // Login failed
+                return "managementLogin.jsp"; // Redirect back to login page
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            return "managementLogin.jsp"; // Redirect back to login page
+        }
+        
+        // System.out.println("Email: " + email + ", Password: " + password);
+        // return "redirect:/mdashboard";
     }
 
     // @GetMapping("/mdashboard")
     // public String mdashboard() {
-    //     return "index"; // this will open mdashboard.jsp
+    // return "index"; // this will open mdashboard.jsp
     // }
 
     // ✅ Add this section for showing doctors
