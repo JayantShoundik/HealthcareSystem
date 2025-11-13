@@ -15,10 +15,10 @@
     <div>
         <strong>Shoundik Multi-Speciality Hospital</strong> | “Healing with Compassion.”
         <br>
-        📞 +91 6200000001 | Chandwa, Latehar |  info@shoundikhospital.com
+         +91 6200000001 | Chandwa, Latehar |  info@shoundikhospital.com
         <br>
         <span style="font-size: 13px; opacity: 0.85;">
-            Developed with ❤️ by <strong>Jayant Shoundik</strong>
+            Developed with  by <strong>Jayant Shoundik</strong>
         </span>
     </div>
 </footer>

@@ -76,11 +76,16 @@
 <body>
     <div class="login-box">
         <h2>Patient Login</h2>
-        <form action="patientDashboard.jsp">
-            <input type="text" placeholder="Email" required><br>
-            <input type="password" placeholder="Password" required><br>
-            <button type="submit">Login</button>
-        </form>
+        <form action="/patientLogin" method="post">
+    <input type="text" name="email" placeholder="Email" required><br>
+    <input type="password" name="password" placeholder="Password" required><br>
+    <button type="submit">Login</button>
+
+    <c:if test="${not empty error}">
+        <p style="color:red;">${error}</p>
+    </c:if>
+</form>
+
         <a href="loginSelection.jsp">← Back</a>
     </div>
     <%@ include file="footer.jsp" %>

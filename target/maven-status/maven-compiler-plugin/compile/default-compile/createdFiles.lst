@@ -1,11 +1,13 @@
-com/healthcare/model/Staff.class
 com/healthcare/repository/StaffRepository.class
 com/healthcare/repository/PatientRepository.class
 com/healthcare/HealthcareSystemApplication.class
+com/healthcare/model/Patient.class
+com/healthcare/repository/AppointmentRepository.class
+com/healthcare/controller/DoctorDashboardController.class
+com/healthcare/model/Staff.class
 com/healthcare/App.class
+com/healthcare/controller/AppointmentController.class
 com/healthcare/model/Appointment.class
 com/healthcare/controller/HomeController.class
 com/healthcare/model/Doctor.class
-com/healthcare/model/Patient.class
 com/healthcare/repository/DoctorRepository.class
-com/healthcare/repository/AppointmentRepository.class

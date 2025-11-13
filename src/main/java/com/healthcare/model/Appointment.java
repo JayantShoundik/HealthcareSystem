@@ -8,70 +8,50 @@ public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long appointmentId;
+    private Long id;  // maps to 'id' column
 
+    @Column(name = "patient_name")
     private String patientName;
+
+    @Column(name = "doctor_name")
     private String doctorName;
-    private String appointmentDate;
+
+    @Column(name = "date")
+    private String date;  // stored as DATE in MySQL
+
+    @Column(name = "status")
     private String status; // Pending, Confirmed, Cancelled
 
-    // Constructors
     public Appointment() {}
 
-    public Appointment(Long appointmentId, String patientName, String doctorName, String appointmentDate, String status) {
-        this.appointmentId = appointmentId;
+    public Appointment(Long id, String patientName, String doctorName, String date, String status) {
+        this.id = id;
         this.patientName = patientName;
         this.doctorName = doctorName;
-        this.appointmentDate = appointmentDate;
+        this.date = date;
         this.status = status;
     }
 
-    // Getters and Setters
-    public Long getAppointmentId() {
-        return appointmentId;
-    }
+    // Getters and setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setAppointmentId(Long appointmentId) {
-        this.appointmentId = appointmentId;
-    }
+    public String getPatientName() { return patientName; }
+    public void setPatientName(String patientName) { this.patientName = patientName; }
 
-    public String getPatientName() {
-        return patientName;
-    }
+    public String getDoctorName() { return doctorName; }
+    public void setDoctorName(String doctorName) { this.doctorName = doctorName; }
 
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
-    }
+    public String getDate() { return date; }
+    public void setDate(String date) { this.date = date; }
 
-    public String getDoctorName() {
-        return doctorName;
-    }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 
-    public void setDoctorName(String doctorName) {
-        this.doctorName = doctorName;
-    }
-
-    public String getAppointmentDate() {
-        return appointmentDate;
-    }
-
-    public void setAppointmentDate(String appointmentDate) {
-        this.appointmentDate = appointmentDate;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    // toString
     @Override
     public String toString() {
-        return "Appointment [appointmentId=" + appointmentId + ", patientName=" + patientName +
-               ", doctorName=" + doctorName + ", appointmentDate=" + appointmentDate +
+        return "Appointment [id=" + id + ", patientName=" + patientName +
+               ", doctorName=" + doctorName + ", date=" + date +
                ", status=" + status + "]";
     }
 }

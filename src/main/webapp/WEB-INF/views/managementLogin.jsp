@@ -93,7 +93,7 @@
 </form>
 
 
-        <a href="/getStarted">← Back</a>
+        <a href="button" onclick="history.back()">← Back</a>
     </div>
 
     <%@ include file="footer.jsp" %>
